@@ -65,7 +65,7 @@ def sobre_mi(): #pagina principal/inicial
     )
     skills_list = SkillModel(
         hardware_skills =  ["Diseño de PCB.", "Microcontroladores","Simulacion de circuitos.","Procesamiento de señales."],
-        software__skills = ["python.", "C/C++.","SQL.","FastAPI"]
+        software_skills = ["python.", "C/C++.","SQL.","FastAPI"]
 
     )
     education_list = EducationModel(
