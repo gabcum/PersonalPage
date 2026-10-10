@@ -41,7 +41,7 @@ class ProfileResponse(BaseModel):
 class StandardResponse(BaseModel): 
     status: str
     message: str
-    data: any  
+    data: Any
     meta: Optional[dict] = None
 
 class ProjectModel(BaseModel):
@@ -51,6 +51,9 @@ class ProjectModel(BaseModel):
     stack : Optional[list[str]] = None #Solo si es de programacion
     link : str
     demo : str
+
+all_projects_hard: list[ProjectModel] = []
+all_projects_soft: list[ProjectModel] = []
 
 #--Metodos--#
 #--Pagina inicial--# 
@@ -93,7 +96,7 @@ def list_hardw():
   
     return StandardResponse(
            status= "success",
-           message= "Proyectos Encontrados",
+           message= "Proyectos encontrados" if all_projects_hard else "No hay proyectos disponibles",
            data= all_projects_hard,
        )
 
@@ -103,6 +106,6 @@ def list_hardw():
 def list_softw():
     return StandardResponse(
             status= "success",
-            message= "Proyectos Encontrados",
-            data= ProjectModel,
+            message= "Proyectos encontrados" if all_projects_soft else "No hay proyectos disponibles",
+            data= all_projects_soft,
            )
